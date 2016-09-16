@@ -8,42 +8,69 @@ import java.util.ArrayList;
 public class Users {
     public ArrayList<User> userList;
 
+    public Users() {
+        userList = new ArrayList<>();
+    }
+
     public void addUser(User user)
     {
+        userList.add(user);
     }
 
     public void addUser(String userName, String password)
     {
+        User user = new User();
+        user.setPassword(userName);
+        user.setUserName(password);
+        userList.add(user);
     }
 
     public void deleteUser(User user)
     {
-
+        userList.remove(user);
     }
 
     public boolean exists(User user)
     {
-        return false;
+        if (userList.contains(user)){
+            return true;
+        }else {
+            return false;
+        }
+
     }
 
     public boolean usernameExists(String username)
     {
+
+            for (User findUser : userList) {
+                if (findUser.getUserName().equals(username)) {
+                    return true;
+                }
+            }
         return false;
     }
 
     /* This method should return null when the user with username is not in the list */
     public User getUserByUsername(String userName)
     {
+        for (User find : userList){
+            if(find.getUserName().equals(userName)){
+                return find;
+            }
+        }
         return null;
     }
 
     public int count()
     {
-        return 0;
+        return userList.size();
     }
 
     public User[] getUserArray()
     {
-        return null;
+        User[] userArrey = new User[count()];
+        userArrey = userList.toArray(userArrey);
+        return userArrey;
     }
 }
