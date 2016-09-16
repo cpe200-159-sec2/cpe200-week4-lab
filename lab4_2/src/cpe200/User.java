@@ -12,6 +12,8 @@ public class User {
     private String password;
 
     public User() {
+        userName = null;
+        password = null;
     }
 
     public boolean setUserName(String userName) {
