@@ -4,6 +4,7 @@ import cpe200.BinaryCalculator;
 import cpe200.Operand;
 import org.junit.Before;
 import org.junit.Test;
+import java.math.BigDecimal;
 
 
 import java.lang.reflect.*;
