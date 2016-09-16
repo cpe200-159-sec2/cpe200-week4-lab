@@ -1,39 +1,55 @@
 package cpe200;
 
 
+import java.math.BigDecimal;
+
 public class BinaryCalculator {
-    public Operand firstOperand;
-    public Operand secondOperand;
+    private Operand firstOperand;
+    private  Operand secondOperand;
+    private BigDecimal FirstOper;
+    private  BigDecimal SecondOper;
 
     public BinaryCalculator() {
+        this.FirstOper = new BigDecimal(0);
+        this.SecondOper = new BigDecimal(0);
+
     }
 
     public void setFirstOperand(Operand operand) {
+        FirstOper = new BigDecimal(operand.getOperand());
     }
 
 
     public void setSecondOperand(Operand operand) {
+        SecondOper = new BigDecimal((operand.getOperand()));
     }
 
     public String add() {
-        return null;
+
+        return FirstOper.add(SecondOper).stripTrailingZeros().toString();
     }
 
     public String subtract() {
-        return null;
+        return FirstOper.subtract(SecondOper).stripTrailingZeros().toString();
+
     }
 
     public String multiply() {
-        return null;
+        return FirstOper.multiply(SecondOper).stripTrailingZeros().toString();
+
     }
 
     /* This method should throw an exception when divide by zero */
     public String division() throws ArithmeticException {
-        return null;
+        if (SecondOper.compareTo(BigDecimal.ZERO)==0){
+            throw new RuntimeException("Error");
+        }
+        return FirstOper.divide(SecondOper,5,BigDecimal.ROUND_UP).stripTrailingZeros().toString();
     }
 
     public String power() {
-        return null;
+
+        return FirstOper.pow(SecondOper.intValue()).stripTrailingZeros().toString();
     }
 
 }
