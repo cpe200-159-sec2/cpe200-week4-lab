@@ -61,6 +61,6 @@ public class Users {
 
     public User[] getUserArray()
     {
-        return userList.toArray(new User[1]);
+        return userList.toArray(new User[count()]);
     }
 }
