@@ -10,15 +10,18 @@ public class Users {
 
     public void addUser(User user)
     {
+        userList.add(user);
     }
 
     public void addUser(String userName, String password)
     {
+        User user = new User(userName,password);
+        userList.add(user);
     }
 
     public void deleteUser(User user)
     {
-
+        userList.remove(user);
     }
 
     public boolean exists(User user)

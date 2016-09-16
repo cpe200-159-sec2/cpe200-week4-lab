@@ -4,40 +4,57 @@ package cpe200;
 import java.math.BigDecimal;
 
 public class BinaryCalculator {
-    public BigDecimal firstOperand;
-    public BigDecimal secondOperand;
+    private BigDecimal firstOperand;
+    private BigDecimal secondOperand;
 
     public BinaryCalculator() {
     }
 
     public void setFirstOperand(Operand operand) {
-        firstOperand = new BigDecimal(operand.operand);
+        setFirstOperand(new BigDecimal(operand.getOperand()));
     }
 
 
     public void setSecondOperand(Operand operand) {
-        secondOperand = new BigDecimal(operand.operand);
+        setSecondOperand(new BigDecimal(operand.getOperand()));
     }
 
     public String add() {
-        return firstOperand.add(secondOperand).stripTrailingZeros().toString();
+        return getFirstOperand().add(getSecondOperand()).stripTrailingZeros().toString();
     }
 
     public String subtract() {
-        return firstOperand.subtract(secondOperand).stripTrailingZeros().toString();
+        return getFirstOperand().subtract(getSecondOperand()).stripTrailingZeros().toString();
     }
 
     public String multiply() {
-        return  firstOperand.multiply(secondOperand).stripTrailingZeros().toString();
+        return  getFirstOperand().multiply(getSecondOperand()).stripTrailingZeros().toString();
     }
 
-    /* This method should throw an exception when divide by zero */
     public String division() throws ArithmeticException {
-        return null;
+        if(getSecondOperand().toString()=="0"){
+            throw new RuntimeException("Error");
+        }
+        return getFirstOperand().divide(getSecondOperand(),5,BigDecimal.ROUND_HALF_UP).stripTrailingZeros().toString();
     }
 
     public String power() {
-        return firstOperand.pow(Integer.parseInt(secondOperand.toString())).stripTrailingZeros().toString();
+        return getFirstOperand().pow(Integer.parseInt(getSecondOperand().stripTrailingZeros().toString())).stripTrailingZeros().toString();
     }
 
+    public BigDecimal getFirstOperand() {
+        return firstOperand;
+    }
+
+    public void setFirstOperand(BigDecimal firstOperand) {
+        this.firstOperand = firstOperand;
+    }
+
+    public BigDecimal getSecondOperand() {
+        return secondOperand;
+    }
+
+    public void setSecondOperand(BigDecimal secondOperand) {
+        this.secondOperand = secondOperand;
+    }
 }
