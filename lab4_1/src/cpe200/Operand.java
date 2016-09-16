@@ -14,7 +14,7 @@ public class   Operand {
     public Operand(double operand) {
         this.operand = Double.toString(operand);
     }
-    public String  getValue(){
+    public String getValue(){
         return operand;
     }
 

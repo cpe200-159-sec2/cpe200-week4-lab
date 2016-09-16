@@ -4,8 +4,8 @@ package cpe200;
 import java.math.BigDecimal;
 
 public class BinaryCalculator {
-    public BigDecimal firstOperand;
-    public BigDecimal secondOperand;
+    private BigDecimal firstOperand;
+    private BigDecimal secondOperand;
 
     public BinaryCalculator() {
         firstOperand = new BigDecimal(0);
