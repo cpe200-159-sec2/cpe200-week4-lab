@@ -4,8 +4,8 @@ package cpe200;
  * Created by pruet on 6/9/2559.
  */
 public class User {
-    public String userName;
-    public String password;
+    private String userName;
+    private String password;
 
     public User() {
     }
@@ -16,7 +16,7 @@ public class User {
     public boolean setUserName(String name)
     {
         if(name.matches("^([A-Za-z])([A-Za-z0-9]{7,})$")){
-            userName = name;
+            this.userName = name;
             return true;
         }
         return false;
@@ -25,7 +25,7 @@ public class User {
     public boolean setPassword(String name)
     {
         if(name.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])([A-Za-z0-9]){12,}$")){
-            password = name;
+            this.password = name;
             return true;
         }
         return false;
@@ -38,4 +38,5 @@ public class User {
     public String getPassword() {
         return password;
     }
+
 }
