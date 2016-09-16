@@ -2,38 +2,94 @@ package cpe200;
 
 
 public class BinaryCalculator {
-    public Operand firstOperand;
-    public Operand secondOperand;
+    private Operand firstOperand;
+    private Operand secondOperand;
 
     public BinaryCalculator() {
+
+        firstOperand = new Operand(0);
+        secondOperand = new Operand(0);
+
     }
 
     public void setFirstOperand(Operand operand) {
+        firstOperand.setOperand(operand.getOperand());
     }
 
 
     public void setSecondOperand(Operand operand) {
+        secondOperand.setOperand(operand.getOperand());
     }
 
     public String add() {
-        return null;
+
+        double first = Double.parseDouble(firstOperand.getOperand());
+        double second = Double.parseDouble(secondOperand.getOperand());
+
+        double sum = first + second ;
+        String s = Double.toString(sum);
+
+        return s = s.indexOf(".") < 0 ? s : s.replaceAll("0*$", "").replaceAll("\\.$", "");
     }
 
     public String subtract() {
-        return null;
+
+        double first = Double.parseDouble(firstOperand.getOperand());
+        double second = Double.parseDouble(secondOperand.getOperand());
+
+        double sum = first - second ;
+
+        String s = Double.toString(sum);
+
+        s = String.format("%.5f",sum);
+        return s = s.indexOf(".") < 0 ? s : s.replaceAll("0*$", "").replaceAll("\\.$", "");
+
     }
 
     public String multiply() {
-        return null;
+
+        double first = Double.parseDouble(firstOperand.getOperand());
+        double second = Double.parseDouble(secondOperand.getOperand());
+
+        double sum = first * second ;
+
+        String s = Double.toString(sum);
+
+        return s = s.indexOf(".") < 0 ? s : s.replaceAll("0*$", "").replaceAll("\\.$", "");
     }
 
     /* This method should throw an exception when divide by zero */
     public String division() throws ArithmeticException {
-        return null;
+
+        double first = Double.parseDouble(firstOperand.getOperand());
+        double second = Double.parseDouble(secondOperand.getOperand());
+
+        if(second ==0) {
+            throw new RuntimeException("ERROR");
+        }
+        double sum = first / second ;
+
+        String s = Double.toString(sum);
+        s = String.format("%.5f",sum);
+
+        return s = s.indexOf(".") < 0 ? s : s.replaceAll("0*$", "").replaceAll("\\.$", "");
     }
 
     public String power() {
-        return null;
+
+        double first = Double.parseDouble(firstOperand.getOperand());
+        double second = Double.parseDouble(secondOperand.getOperand());
+
+        double sum = 1;
+
+        for(int i = 0 ; i<second ;i++){
+
+            sum*=first ;
+        }
+
+        String s = Double.toString(sum);
+
+        return s = s.indexOf(".") < 0 ? s : s.replaceAll("0*$", "").replaceAll("\\.$", "");
     }
 
 }
