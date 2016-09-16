@@ -17,35 +17,40 @@ public class Users {
     }
 
     public void addUser(String userName, String password) {
-
+        User user = new User();
+        user.setUserName(userName);
+        user.setPassword(password);
+        userList.add(user);
     }
 
     public void deleteUser(User user) {
         userList.remove(user);
     }
 
-    public boolean exists(User user)
-    {
+    public boolean exists(User user) {
         return userList.contains(user);
     }
 
-    public boolean usernameExists(String username)
-    {
+    public boolean usernameExists(String username) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getUserName().equals(username)) {
+                return true;
+            }
+        }
         return false;
     }
 
     /* This method should return null when the user with username is not in the list */
     public User getUserByUsername(String userName) {
-        for(int i=0;i<userList.size();i++){
-            if(userList.get(i).getUserName().equals(userName)){
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getUserName().equals(userName)) {
                 return userList.get(i);
             }
         }
         return null;
     }
 
-    public int count()
-    {
+    public int count() {
         return userList.size();
     }
 

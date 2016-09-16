@@ -35,7 +35,8 @@ public class BinaryCalculator {
     /* This method should throw an exception when divide by zero */
     public String division() throws ArithmeticException {
         if (getSecondOperand().toString().equals(0)) throw new ArithmeticException("Error");
-        else return getFirstOperand().divide(getSecondOperand(), 5, BigDecimal.ROUND_HALF_UP).stripTrailingZeros().toString();
+        else
+            return getFirstOperand().divide(getSecondOperand(), 5, BigDecimal.ROUND_HALF_UP).stripTrailingZeros().toString();
     }
 
     public String power() {
