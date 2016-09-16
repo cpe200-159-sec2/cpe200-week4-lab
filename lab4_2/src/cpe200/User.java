@@ -11,18 +11,28 @@ public class User {
     }
 
     public boolean setUserName(String name) {
+        String setuser = "^[a-zA-Z][a-zA-Z0-9]{7,}$";
+        if(name.matches(setuser)){
+            userName = name;
+            return true;
+        }
         return false;
     }
 
     public boolean setPassword(String name) {
+        String setpass = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9]{12,}$";
+        if(name.matches(setpass)){
+            password = name;
+            return true;
+        }
         return false;
     }
 
     public String getUserName() {
-        return null;
+        return userName;
     }
 
     public String getPassword() {
-        return null;
+        return password;
     }
 }
