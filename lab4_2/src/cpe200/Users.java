@@ -14,7 +14,13 @@ public class Users {
 
     public void addUser(User user)
     {
-        userList.add(user);
+        int i = 0;
+        for (; i < userList.size(); i++) {
+            if (userList.get(i).getUserName().compareTo(user.getUserName()) > -1) {
+                break;
+            }
+        }
+        userList.add(i, user);
     }
 
     public void addUser(String userName, String password)
@@ -43,9 +49,19 @@ public class Users {
     /* This method should return null when the user with username is not in the list */
     public User getUserByUsername(String userName)
     {
-        for (User user: userList) {
-            if (user.getUserName().equals(userName)) {
-                return user;
+        int begin = 0, end = userList.size()-1;
+        while (begin <= end) {
+            int mid = (end - begin) / 2 + begin;
+            User user = userList.get(mid);
+            switch (user.getUserName().compareTo(userName)) {
+                case -1:
+                    end = mid - 1;
+                    break;
+                case 1:
+                    begin = mid + 1;
+                    break;
+                default:
+                    return user;
             }
         }
         return null;
