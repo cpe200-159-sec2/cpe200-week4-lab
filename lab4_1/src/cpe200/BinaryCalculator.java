@@ -1,30 +1,34 @@
 package cpe200;
 
 
+import java.math.BigDecimal;
+
 public class BinaryCalculator {
-    public Operand firstOperand;
-    public Operand secondOperand;
+    public BigDecimal firstOperand;
+    public BigDecimal secondOperand;
 
     public BinaryCalculator() {
     }
 
     public void setFirstOperand(Operand operand) {
+        firstOperand = new BigDecimal(operand.operand);
     }
 
 
     public void setSecondOperand(Operand operand) {
+        secondOperand = new BigDecimal(operand.operand);
     }
 
     public String add() {
-        return null;
+        return firstOperand.add(secondOperand).stripTrailingZeros().toString();
     }
 
     public String subtract() {
-        return null;
+        return firstOperand.subtract(secondOperand).stripTrailingZeros().toString();
     }
 
     public String multiply() {
-        return null;
+        return  firstOperand.multiply(secondOperand).stripTrailingZeros().toString();
     }
 
     /* This method should throw an exception when divide by zero */
@@ -33,7 +37,7 @@ public class BinaryCalculator {
     }
 
     public String power() {
-        return null;
+        return firstOperand.pow(Integer.parseInt(secondOperand.toString())).stripTrailingZeros().toString();
     }
 
 }

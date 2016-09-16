@@ -8,11 +8,11 @@ public class Operand {
     }
 
     public Operand(int operand) {
-
+        this.operand = Integer.toString(operand);
     }
 
     public Operand(double operand) {
-
+        this.operand = Double.toString(operand);
     }
 
 }
