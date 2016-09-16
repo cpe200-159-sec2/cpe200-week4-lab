@@ -1,18 +1,26 @@
 package cpe200;
 
 public class Operand {
-    public String operand;
+    private String operand;
+
 
     public Operand(String operand) {
-        this.operand = operand;
+        this.setOperand(operand);
     }
 
     public Operand(int operand) {
-
+        this.setOperand(Integer.toString(operand));
     }
 
     public Operand(double operand) {
-
+        this.setOperand(Double.toString(operand));
     }
 
+    public void setOperand(String operand) {
+        this.operand = operand;
+    }
+
+    public String getOperand() {
+        return operand;
+    }
 }
