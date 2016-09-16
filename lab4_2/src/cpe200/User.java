@@ -8,21 +8,40 @@ public class User {
     public String password;
 
     public User() {
+        this.userName="";
+        this.password="";
     }
 
     public boolean setUserName(String name) {
-        return false;
+        String regex = "^[A-Za-z][a-zA-Z0-9]{7,}$";
+        if(name.matches(regex)){
+            userName = name;
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     public boolean setPassword(String name) {
-        return false;
+        String ch = "^((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]))([A-Za-z0-9]){12,}$";
+        if(name.matches(ch)){
+            password = name;
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     public String getUserName() {
-        return null;
+
+        return userName;
     }
 
     public String getPassword() {
-        return null;
+        return password;
     }
+
+
 }
