@@ -197,8 +197,10 @@ public class BinaryCalculatorTest {
         secondOperand = new Operand(2.0);
         binaryCalculator.setFirstOperand(firstOperand);
         binaryCalculator.setSecondOperand(secondOperand);
-        assertEquals("8", binaryCalculator.multiply());
+        assertEquals("9", binaryCalculator.power());
     }
+
+
 
     @Test
     public void addStringNegative() throws Exception {
