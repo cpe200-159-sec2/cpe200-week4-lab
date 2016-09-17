@@ -200,6 +200,8 @@ public class BinaryCalculatorTest {
         assertEquals("9", binaryCalculator.power());
     }
 
+
+
     @Test
     public void addStringNegative() throws Exception {
         firstOperand = new Operand("1");
