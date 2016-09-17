@@ -16,10 +16,11 @@ public class BinaryCalculator {
     }
 
     protected String format(double val) {
-        if (Math.abs(100000 * val - 100000 * Math.round(val)) < 1) {
+        long significanceFactor = 100000;
+        if (Math.abs(significanceFactor * val - significanceFactor * Math.round(val)) < 1) {
             return String.format("%d", (long) val);
         } else {
-            return String.format("%s", (double) Math.round(100000 * val) / 100000);
+            return String.format("%s", (double) Math.round(significanceFactor * val) / significanceFactor);
         }
     }
 

@@ -55,10 +55,10 @@ public class Users {
             User user = userList.get(mid);
             switch (user.getUserName().compareTo(userName)) {
                 case -1:
-                    end = mid - 1;
+                    begin = mid + 1;
                     break;
                 case 1:
-                    begin = mid + 1;
+                    end = mid - 1;
                     break;
                 default:
                     return user;
