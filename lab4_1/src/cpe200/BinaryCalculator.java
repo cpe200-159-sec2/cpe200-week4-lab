@@ -10,23 +10,35 @@ public class BinaryCalculator {
     public BinaryCalculator() {
     }
 
-    public void setFirstOperand(Operand operand) {
+    public void setFirstOperand(Operand operand)
+    {
         firstOperand = new BigDecimal(operand.operand);
     }
 
 
-    public void setSecondOperand(Operand operand) {
+    public void setSecondOperand(Operand operand)
+    {
         secondOperand = new BigDecimal(operand.operand);
     }
 
-    public String add() { return ((firstOperand.add(secondOperand)).stripTrailingZeros()).toString(); }
+    public String add()
+    {
+        return ((firstOperand.add(secondOperand)).stripTrailingZeros()).toString();
+    }
 
-    public String subtract() { return ((firstOperand.subtract(secondOperand)).stripTrailingZeros()).toString(); }
+    public String subtract()
+    {
+        return ((firstOperand.subtract(secondOperand)).stripTrailingZeros()).toString();
+    }
 
-    public String multiply() { return  ((firstOperand.multiply(secondOperand)).stripTrailingZeros()).toString(); }
+    public String multiply()
+    {
+        return  ((firstOperand.multiply(secondOperand)).stripTrailingZeros()).toString();
+    }
 
     /* This method should throw an exception when divide by zero */
-    public String division() throws ArithmeticException {
+    public String division() throws ArithmeticException
+    {
         String x;
         if(secondOperand==BigDecimal.ZERO){
             throw new ArithmeticException("CannotDividedByZero");
@@ -37,6 +49,9 @@ public class BinaryCalculator {
         return x;
     }
 
-    public String power() {return ((firstOperand.pow(secondOperand.intValue())).stripTrailingZeros()).toString(); }
+    public String power() 
+    {
+        return ((firstOperand.pow(secondOperand.intValue())).stripTrailingZeros()).toString();
+    }
 
 }
