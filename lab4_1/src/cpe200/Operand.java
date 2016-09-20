@@ -8,12 +8,10 @@ public class Operand {
     }
 
     public Operand(int operand) {
-        setOperand(operand);
         this.setOperand(getOperand());
     }
 
     public Operand(double operand) {
-        setOperand(operand);
         this.setOperand(getOperand());
     }
 
